@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Sparkles } from "lucide-react";
 
 import { Container } from "@/components/Container";
-import { eyebrow, transitionBase } from "@/lib/ui";
+import { transitionBase } from "@/lib/ui";
 
 const faqs = [
   {
@@ -54,28 +54,31 @@ export function Faq() {
   const [openId, setOpenId] = useState(0);
 
   return (
-    <section id="faq" className="scroll-mt-24 border-y border-slate-200/70 bg-white/50 py-20 backdrop-blur-sm dark:border-slate-800/80 dark:bg-slate-950/40 sm:py-28">
+    <section id="faq" className="scroll-mt-24 border-y border-indigo-100/60 bg-gradient-to-b from-white via-slate-50/50 to-white py-24 backdrop-blur-sm dark:border-slate-800/80 dark:bg-gradient-to-b dark:from-slate-950 dark:via-slate-900/40 dark:to-slate-950 sm:py-32">
       <Container>
-        <div className="mx-auto max-w-5xl text-center">
-          <p className={eyebrow}>FAQ</p>
-          <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-            Answers that help you evaluate faster
+        <div className="mx-auto max-w-4xl text-center mb-16">
+          <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-black uppercase tracking-widest text-indigo-700 bg-indigo-50 border border-indigo-200/80 dark:bg-indigo-950/80 dark:text-indigo-300 dark:border-indigo-800 mb-4">
+            <Sparkles className="h-3.5 w-3.5 text-indigo-600 animate-spin" style={{ animationDuration: "6s" }} />
+            <span>Clear & Transparent</span>
+          </div>
+          <h2 className="font-heading text-4xl font-black tracking-tight text-slate-900 sm:text-5xl dark:text-white">
+            Frequently Asked Questions
           </h2>
-          <p className="mt-4 text-pretty text-lg text-slate-600 dark:text-slate-400 sm:text-xl">
-            Straight talk on shipped capabilities—from MFA and reminders to share links—plus privacy posture and scale thinking without buzzword bingo.
+          <p className="mt-4 text-pretty text-lg font-medium text-slate-600 dark:text-slate-300 sm:text-xl">
+            Everything you need to know about HIPAA compliance, billing models, medicine reminders, and clinical portal workflows.
           </p>
         </div>
 
-        <div className="mx-auto mt-14 max-w-4xl space-y-3">
+        <div className="mx-auto mt-14 max-w-4xl space-y-4">
           {faqs.map((item, index) => {
             const isOpen = openId === index;
             return (
               <div
                 key={item.q}
                 className={
-                  "overflow-hidden rounded-2xl border border-slate-200/80 bg-[var(--hb-glass)] shadow-[var(--hb-shadow-card)] backdrop-blur-xl dark:border-slate-800/85 dark:bg-slate-950/55 " +
+                  "overflow-hidden rounded-[1.5rem] border border-slate-200/90 bg-white/95 shadow-lg shadow-slate-200/40 backdrop-blur-xl dark:border-slate-800/90 dark:bg-slate-900/80 dark:shadow-none " +
                   transitionBase +
-                  (isOpen ? " ring-1 ring-indigo-200/60 dark:ring-indigo-500/25" : " hover:border-indigo-200/50 dark:hover:border-indigo-500/20")
+                  (isOpen ? " ring-2 ring-indigo-500/40 border-indigo-300 dark:ring-indigo-500/30 dark:border-indigo-500/50" : " hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-500/10 dark:hover:border-indigo-500/30")
                 }
               >
                 <button
@@ -83,14 +86,14 @@ export function Faq() {
                   id={`faq-btn-${index}`}
                   aria-expanded={isOpen}
                   aria-controls={`faq-panel-${index}`}
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left sm:px-6 sm:py-5"
+                  className="flex w-full items-center justify-between gap-6 px-6 py-5 sm:px-8 sm:py-6 text-left focus:outline-none"
                   onClick={() => setOpenId(isOpen ? -1 : index)}
                 >
-                  <span className="font-heading text-base font-semibold text-slate-900 sm:text-lg dark:text-white">{item.q}</span>
+                  <span className="font-heading text-lg font-bold text-slate-900 sm:text-xl dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition">{item.q}</span>
                   <motion.span
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-700 dark:bg-indigo-500/15 dark:text-indigo-200"
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition duration-200 ${isOpen ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/25' : 'bg-indigo-50 text-indigo-700 dark:bg-indigo-500/15 dark:text-indigo-200'}`}
                   >
                     <ChevronDown className="h-5 w-5" aria-hidden />
                   </motion.span>
@@ -107,7 +110,7 @@ export function Faq() {
                       transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="border-t border-slate-200/70 px-5 pb-5 pt-4 text-sm leading-relaxed text-slate-600 sm:px-6 sm:text-base dark:border-slate-800 dark:text-slate-400">
+                      <p className="border-t border-slate-100 px-6 pb-6 pt-5 text-base font-medium leading-relaxed text-slate-600 sm:px-8 dark:border-slate-800/80 dark:text-slate-300 bg-slate-50/50 dark:bg-slate-900/30">
                         {item.a}
                       </p>
                     </motion.div>
