@@ -63,7 +63,7 @@ export function ProductPreview() {
               " hover:shadow-[0_50px_120px_-20px_rgba(79,70,229,0.35)]"
             }
           >
-            <div className="relative aspect-[16/10] min-h-[320px] w-full sm:aspect-[21/10] sm:min-h-[380px]">
+            <div className="relative w-full min-h-[320px] sm:min-h-[380px]">
               <Image
                 src="/marketing/home-ambient.webp"
                 alt=""
@@ -86,14 +86,14 @@ export function ProductPreview() {
               />
               <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-indigo-50/50 dark:from-slate-950/90 dark:via-slate-950/80 dark:to-indigo-950/60" />
 
-              <div className="absolute inset-0 flex flex-col p-4 sm:p-8">
+              <div className="relative z-10 flex flex-col p-4 sm:p-8">
                 <div className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200/80 bg-white/95 px-5 py-3 shadow-lg shadow-indigo-500/10 backdrop-blur-xl dark:border-slate-700/80 dark:bg-slate-900/90">
-                  <div className="flex items-center gap-3.5">
-                    <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-500/30 font-bold">
+                  <div className="flex items-center gap-3.5 min-w-0">
+                    <span className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-500/30 font-bold">
                       <LayoutDashboard className="h-5 w-5" aria-hidden />
                     </span>
-                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                    <div className="min-w-0">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 truncate">
                         Active Workspace
                       </p>
                       <p className="truncate text-sm sm:text-base font-black font-heading text-slate-900 dark:text-white">HealthBook · Clinical Command</p>
@@ -104,7 +104,7 @@ export function ProductPreview() {
                       <Search className="h-4 w-4 shrink-0 opacity-70" aria-hidden />
                       Search patients, labs, visits…
                     </span>
-                    <span className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200/90 bg-white/95 shadow-sm dark:border-slate-700 dark:bg-slate-800 transition hover:scale-105">
+                    <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200/90 bg-white/95 shadow-sm dark:border-slate-700 dark:bg-slate-800 transition hover:scale-105">
                       <Bell className="h-5 w-5 text-slate-700 dark:text-slate-200" aria-hidden />
                       <span className="absolute right-2.5 top-2.5 h-2.5 w-2.5 rounded-full bg-rose-500 ring-2 ring-white dark:ring-slate-900 animate-pulse" />
                     </span>
@@ -129,7 +129,7 @@ export function ProductPreview() {
                   </aside>
 
                   <div className="flex min-w-0 flex-1 flex-col gap-4 sm:gap-5">
-                    <div className="grid shrink-0 grid-cols-3 gap-3 sm:gap-4">
+                    <div className="grid shrink-0 grid-cols-1 sm:grid-cols-3 gap-4">
                       {[
                         { k: "Appointments Today", v: "12 Slots", sub: "100% Confirmed" },
                         { k: "Secure Messages", v: "3 Unread", sub: "Lab queries active" },
@@ -139,7 +139,7 @@ export function ProductPreview() {
                           key={cell.k}
                           className={
                             glassPanel +
-                            " rounded-2xl p-4 sm:p-5 shadow-lg shadow-slate-200/40 backdrop-blur-2xl border border-slate-200/80 dark:border-slate-700/80 " +
+                            " rounded-2xl p-5 shadow-lg shadow-slate-200/40 backdrop-blur-2xl border border-slate-200/80 dark:border-slate-700/80 " +
                             transitionBase +
                             " hover:shadow-xl hover:-translate-y-1 hover:border-indigo-300"
                           }
@@ -147,8 +147,8 @@ export function ProductPreview() {
                           <p className="text-[10px] font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
                             {cell.k}
                           </p>
-                          <p className="mt-1 font-heading text-2xl font-black text-slate-900 sm:text-3xl dark:text-white">{cell.v}</p>
-                          <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">{cell.sub}</p>
+                          <p className="mt-1.5 font-heading text-3xl font-black text-slate-900 dark:text-white">{cell.v}</p>
+                          <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1.5">{cell.sub}</p>
                         </div>
                       ))}
                     </div>
@@ -161,16 +161,16 @@ export function ProductPreview() {
                         " hover:shadow-xl"
                       }
                     >
-                      <div className="flex items-center justify-between gap-2">
-                        <p className="text-sm font-bold text-slate-900 dark:text-white font-heading">
+                      <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-4">
+                        <p className="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">
                           <Activity className="mr-2 inline h-4 w-4 text-indigo-600 animate-pulse" aria-hidden />
-                          Longitudinal Visit Volume Analytics
+                          Visit Volume Analytics
                         </p>
                         <span className="rounded-full bg-emerald-100/90 px-3 py-1 text-[11px] font-extrabold text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 shadow-sm">
                           +18% WoW Growth
                         </span>
                       </div>
-                      <div className="mt-6 flex h-40 items-end gap-2 sm:h-44 sm:gap-3">
+                      <div className="mt-6 flex h-40 items-end gap-1.5 sm:gap-3">
                         {bars.map((h, i) => (
                           <div key={i} className="flex h-full min-h-0 flex-1 flex-col justify-end group">
                             <motion.div
@@ -186,12 +186,12 @@ export function ProductPreview() {
                       </div>
                     </div>
 
-                    <div className="flex shrink-0 items-center gap-3.5 rounded-2xl border border-indigo-200 bg-gradient-to-r from-indigo-50/90 to-purple-50/90 p-4 shadow-md backdrop-blur-md dark:border-indigo-500/40 dark:from-slate-900/90 dark:to-indigo-950/90 text-sm text-indigo-950 dark:text-indigo-100">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-md shadow-indigo-500/30 animate-pulse">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3.5 rounded-2xl border border-indigo-200 bg-gradient-to-r from-indigo-50/90 to-purple-50/90 p-4.5 sm:p-4 shadow-md backdrop-blur-md dark:border-indigo-500/40 dark:from-slate-900/90 dark:to-indigo-950/90 text-sm text-indigo-950 dark:text-indigo-100">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-md shadow-indigo-500/30 animate-pulse font-bold">
                         <MessageSquare className="h-5 w-5" aria-hidden />
                       </div>
                       <span className="leading-relaxed font-medium">
-                        <span className="font-extrabold font-heading text-indigo-900 dark:text-indigo-200">Dr. Rao</span> replied about your recent cardiology lab follow-up — tap Secure Messages to continue.
+                        <span className="font-extrabold font-heading text-indigo-900 dark:text-indigo-200">Dr. Rao</span> replied about your recent lab follow-up — tap Secure Messages to continue.
                       </span>
                     </div>
                   </div>
