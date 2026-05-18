@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f7fb;
+  --foreground: #0f172a;
+  /* Primary brand: purple → indigo → blue */
+  --hb-accent: #6366f1;
+  --hb-accent-end: #2563eb;
+  --hb-accent-soft: rgba(99, 102, 241, 0.16);
+  --hb-glass: rgba(255, 255, 255, 0.72);
+  --hb-glass-border: rgba(255, 255, 255, 0.55);
+  --hb-radius: 1rem;
+  --hb-radius-lg: 1.5rem;
+  --hb-radius-xl: 1.75rem;
+  --hb-shadow-soft: 0 22px 56px -14px rgba(15, 23, 42, 0.12);
+  --hb-shadow-card: 0 18px 48px -12px rgba(15, 23, 42, 0.1);
+  --hb-shadow-hover: 0 32px 72px -16px rgba(79, 70, 229, 0.22);
+  --hb-transition: 260ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #030712;
+    --foreground: #f1f5f9;
+    --hb-accent: #818cf8;
+    --hb-accent-end: #3b82f6;
+    --hb-accent-soft: rgba(129, 140, 248, 0.18);
+    --hb-glass: rgba(15, 23, 42, 0.65);
+    --hb-glass-border: rgba(148, 163, 184, 0.12);
+    --hb-shadow-soft: 0 28px 64px -14px rgba(0, 0, 0, 0.55);
+    --hb-shadow-card: 0 22px 56px -12px rgba(0, 0, 0, 0.45);
+    --hb-shadow-hover: 0 36px 80px -16px rgba(99, 102, 241, 0.28);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+  background-color: var(--background);
+  color: var(--foreground);
+  background-image:
+    radial-gradient(ellipse 110% 65% at 50% -22%, var(--hb-accent-soft), transparent 54%),
+    radial-gradient(ellipse 55% 38% at 100% 0%, rgba(6, 182, 212, 0.07), transparent 46%),
+    radial-gradient(ellipse 45% 30% at 0% 20%, rgba(236, 72, 153, 0.05), transparent 42%);
+  background-attachment: fixed;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image:
+      radial-gradient(ellipse 100% 58% at 50% -18%, rgba(99, 102, 241, 0.22), transparent 52%),
+      radial-gradient(ellipse 48% 34% at 100% 8%, rgba(6, 182, 212, 0.1), transparent 42%),
+      radial-gradient(ellipse 40% 28% at 0% 18%, rgba(244, 114, 182, 0.08), transparent 40%);
+  }
+}
+
+::selection {
+  background-color: rgba(99, 102, 241, 0.22);
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+}
+
+a,
+button, 
+select,
+textarea,
+input[type="radio"],
+input[type="checkbox"],
+input[type="file"],
+input[type="date"],
+input[type="time"] {
+  cursor: pointer;
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity, filter;
+  transition-duration: var(--hb-transition);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@utility font-heading {
+  font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Full-screen auth loader — smooth entrance */
+@keyframes hb-loader-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hb-loader-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hb-loader-backdrop {
+  animation: hb-loader-fade 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hb-loader-content {
+  animation: hb-loader-rise 0.58s cubic-bezier(0.22, 1, 0.36, 1) 0.07s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hb-loader-backdrop,
+  .hb-loader-content {
+    animation: none !important;
+  }
+}
