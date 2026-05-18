@@ -4,6 +4,7 @@ import {
   AlarmClock,
   Bell,
   CalendarHeart,
+  CheckCircle2,
   CreditCard,
   FolderOpen,
   Heart,
@@ -13,135 +14,149 @@ import {
   ScrollText,
   Share2,
   ShieldCheck,
+  Sparkles,
+  Zap,
 } from "lucide-react";
 
 import { Container } from "@/components/Container";
 import { Reveal } from "@/components/motion/Reveal";
 import { MarketingPageHeader } from "@/components/marketing/MarketingPageHeader";
 import { MARKETING_PHOTOS } from "@/lib/marketingPhotos";
-import { btnGhost, btnGradient, cardInteractive, eyebrow, glassPanel, transitionBase } from "@/lib/ui";
+import { btnGhost, btnGradient, transitionBase } from "@/lib/ui";
 
 const benefits = [
   {
-    title: "Track records",
+    title: "Longitudinal Record Timeline",
     description:
-      "Visits, labs, imaging, and documents land on one gentle timeline—so you always know what happened, and when.",
+      "Visits, lab diagnostics, DICOM imaging, and clinical prescriptions land on one gentle, chronological timeline—so you always know what happened and when.",
     Icon: FolderOpen,
+    shadow: "shadow-rose-500/25",
   },
   {
-    title: "Book appointments",
+    title: "Instant Smart Scheduling",
     description:
-      "Pick a time that fits your life, get clear confirmations, and reschedule without playing phone tag with the front desk.",
+      "Pick a verified appointment slot that fits your schedule, receive instant automated confirmations, and reschedule without playing phone tag with front desks.",
     Icon: CalendarHeart,
+    shadow: "shadow-teal-500/25",
   },
   {
-    title: "Share with doctors",
+    title: "Scoped Clinical Sharing",
     description:
-      "Grant access when you need care, set boundaries for what is visible, and revoke when visits wrap—your data, your choice.",
+      "Grant scoped chart access when you need care, set strict boundaries for what is visible, and instantly revoke when visits wrap—your data, your absolute choice.",
     Icon: Share2,
+    shadow: "shadow-purple-500/25",
   },
 ];
 
 const productFeatures = [
   {
-    title: "Notifications & push",
+    title: "Notifications & Browser Push",
     description:
-      "In-app alerts plus optional browser push when you enable it—visits, labs, and threads surface without drowning you in noise.",
+      "In-app alerts plus optional browser push when enabled—upcoming visits, lab results, and chat threads surface securely without drowning you in notification noise.",
     Icon: Bell,
+    color: "from-rose-500 to-teal-500",
   },
   {
-    title: "Payments & cancellations",
+    title: "Transparent Split Payments",
     description:
-      "Transparent checkout with fee breakup and clear cancellation windows. In-person visits can collect only the platform fee online while doctor fees are paid at the clinic.",
+      "Transparent checkout with fee breakup. In-person visits collect only nominal platform fees online while full doctor consultation fees are paid directly at the clinic.",
     Icon: CreditCard,
+    color: "from-teal-500 to-cyan-600",
   },
   {
-    title: "Secure messaging",
+    title: "Secure In-App Chat",
     description:
-      "Realtime conversations with authorized clinicians inside HealthBook—attachments respect retention rules and personal numbers stay private.",
+      "Realtime encrypted conversations with authorized doctors inside HealthBook—attachments respect retention rules and personal phone numbers stay 100% private.",
     Icon: MessageSquare,
+    color: "from-purple-600 to-indigo-600",
   },
   {
-    title: "Granular access control",
+    title: "Granular Access Control",
     description:
-      "Approve doctors explicitly, scope what they can open, and revoke access when an episode of care ends.",
+      "Approve clinicians explicitly, scope precisely what records they can open, and automatically revoke access when an episode of care successfully wraps.",
     Icon: Lock,
+    color: "from-amber-500 to-orange-600",
   },
   {
-    title: "Care plans & vitals",
+    title: "Care Plans & Biometric Vitals",
     description:
-      "Log BP, sugar, and weight, set goals, and see trend charts so chronic care stays visible between appointments.",
+      "Log blood pressure, blood sugar, and weight, set health goals, and see trend charts so chronic condition management stays visible between physical appointments.",
     Icon: Pill,
+    color: "from-emerald-500 to-teal-600",
   },
   {
-    title: "Family profiles",
+    title: "Unified Family Profiles",
     description:
-      "Manage dependents under one account for child and caregiver flows—book visits for the right person with clean record separation.",
+      "Manage dependents under one secure account for child and elderly caregiver workflows—book visits for the right family member with flawless record separation.",
     Icon: AlarmClock,
+    color: "from-blue-600 to-indigo-600",
   },
   {
-    title: "Activity log & share packs",
+    title: "Access Logs & Share Packs",
     description:
-      "Review who touched your chart for accountability—and bundle uploads into revocable links when referrals need fast collaboration.",
+      "Review exactly who viewed your chart for complete accountability—and bundle lab reports into time-limited, password-protected links for second opinions.",
     Icon: ScrollText,
+    color: "from-rose-500 to-pink-600",
   },
 ];
 
 const securityPoints = [
-  "Modern TLS for browser sessions plus hardened cookie flows designed for clinical workloads.",
-  "Granular sharing—you approve doctor access instead of default-open portals.",
-  "Transparent activity logs plus MFA-ready authentication paths when policy demands stronger assurance.",
+  "Modern TLS 1.3 encryption for browser sessions plus hardened cookie flows designed for clinical workloads.",
+  "Zero-default sharing—you explicitly approve doctor access instead of default-open legacy portals.",
+  "Transparent tamper-evident activity logs plus MFA-ready authentication paths when policy demands stronger assurance.",
 ];
 
 export function ForPatientsPageContent() {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(ellipse_100%_70%_at_50%_-25%,rgba(251,207,232,0.35),transparent_55%)] dark:bg-[radial-gradient(ellipse_100%_70%_at_50%_-25%,rgba(244,114,182,0.12),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(ellipse_100%_80%_at_50%_-25%,rgba(251,207,232,0.35),transparent_65%)] dark:bg-[radial-gradient(ellipse_100%_80%_at_50%_-25%,rgba(244,114,182,0.15),transparent_65%)]"
       />
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(ellipse_55%_45%_at_0%_50%,rgba(204,251,241,0.45),transparent_50%)] dark:bg-[radial-gradient(ellipse_55%_45%_at_0%_50%,rgba(45,212,191,0.08),transparent_50%)]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(ellipse_50%_40%_at_100%_80%,rgba(224,242,254,0.55),transparent_45%)] dark:bg-[radial-gradient(ellipse_50%_40%_at_100%_80%,rgba(56,189,248,0.06),transparent_45%)]"
+        className="pointer-events-none absolute left-10 top-1/3 -z-20 h-96 w-96 rounded-full bg-gradient-to-br from-teal-500/20 via-cyan-500/15 to-transparent blur-[120px]"
       />
 
       <MarketingPageHeader
-        kicker="For patients"
-        title="Your complete health history in one place"
-        description="Book visits, read your longitudinal record, grant consent-aware access to doctors, message in realtime, opt into browser alerts, manage medicine reminders, inspect access logs, and share curated report packs—all from one responsive patient portal."
-        className="pb-10 sm:pb-14"
+        kicker="For Patients & Families"
+        title="Your Entire Medical Life In One Friendly App."
+        description="Book verified appointments, read your longitudinal medical records, grant consent-aware access to doctors, message in realtime, opt into browser alerts, manage medicine reminders, inspect access logs, and share curated report packs—all from one responsive patient portal."
+        className="pb-12 sm:pb-16"
       />
 
-      <section className="relative pb-20 sm:pb-24" aria-labelledby="patient-benefits-heading">
+      <section className="relative pb-24 sm:pb-32" aria-labelledby="patient-benefits-heading">
         <Container>
           <Reveal>
-            <div className="mx-auto max-w-2xl text-center">
-              <p className={eyebrow + " text-teal-700 dark:text-teal-300"}>Everyday benefits</p>
-              <h2 id="patient-benefits-heading" className="mt-4 font-heading text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-                Less chasing paperwork, more clarity for you and your family
+            <div className="mx-auto max-w-4xl text-center mb-16">
+              <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-black uppercase tracking-widest text-teal-700 bg-teal-50 border border-teal-200/80 dark:bg-teal-950/80 dark:text-teal-300 dark:border-teal-800 mb-4 shadow-sm">
+                <Sparkles className="h-3.5 w-3.5 text-teal-600 animate-spin" style={{ animationDuration: "6s" }} />
+                <span>Everyday Peace of Mind</span>
+              </div>
+              <h2 id="patient-benefits-heading" className="font-heading text-4xl font-black tracking-tight text-slate-900 sm:text-5xl dark:text-white">
+                Less Chasing Paperwork, More Health Clarity
               </h2>
+              <p className="mt-4 text-pretty text-lg font-medium leading-relaxed text-slate-600 dark:text-slate-300 sm:text-xl">
+                We unite fragmented medical histories, lab test PDFs, and clinical prescriptions into one beautiful, easy-to-read narrative for you and your family.
+              </p>
             </div>
           </Reveal>
 
-          <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-3 sm:gap-8">
-            {benefits.map(({ title, description, Icon }, i) => (
+          <div className="mx-auto mt-14 grid max-w-6xl gap-8 sm:grid-cols-3 lg:gap-8">
+            {benefits.map(({ title, description, Icon, shadow }, i) => (
               <Reveal key={title} delay={0.05 * i}>
                 <article
                   className={
-                    "flex h-full flex-col rounded-[1.5rem] border border-rose-100/90 bg-white/90 p-7 shadow-sm backdrop-blur-md dark:border-rose-500/15 dark:bg-slate-950/55 sm:p-8 " +
+                    "group flex h-full flex-col rounded-[2rem] border border-rose-100/90 bg-gradient-to-br from-white/95 via-rose-50/30 to-teal-50/40 p-8 sm:p-10 shadow-2xl shadow-rose-500/10 backdrop-blur-2xl dark:border-rose-500/25 dark:from-slate-900/95 dark:via-rose-950/20 dark:to-teal-950/20 dark:shadow-black/50 " +
                     transitionBase +
-                    " hover:-translate-y-0.5 hover:border-teal-200/80 hover:shadow-md dark:hover:border-teal-500/25"
+                    " hover:-translate-y-2 hover:border-rose-300 hover:shadow-2xl hover:shadow-rose-500/20 dark:hover:border-rose-500/50"
                   }
                 >
-                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-400 to-teal-500 text-white shadow-md shadow-rose-400/25">
-                    <Icon className="h-5 w-5" strokeWidth={1.65} aria-hidden />
+                  <div className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-400 to-teal-500 text-white shadow-xl ${shadow} transform group-hover:scale-110 group-hover:rotate-6 transition duration-300`}>
+                    <Icon className="h-8 w-8" strokeWidth={2} aria-hidden />
                   </div>
-                  <h3 className="font-heading text-lg font-semibold text-slate-900 dark:text-white">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-400">{description}</p>
+                  <h3 className="font-heading text-2xl font-black text-slate-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition">{title}</h3>
+                  <p className="mt-3 flex-1 text-base font-medium leading-relaxed text-slate-600 sm:text-lg dark:text-slate-300">{description}</p>
                 </article>
               </Reveal>
             ))}
@@ -149,39 +164,43 @@ export function ForPatientsPageContent() {
         </Container>
       </section>
 
-      <section className="relative pb-20 sm:pb-28" aria-labelledby="timeline-preview-heading">
+      <section className="relative py-24 sm:py-32 bg-gradient-to-b from-rose-50/30 via-white to-white dark:from-rose-950/10 dark:via-slate-950 dark:to-slate-950 border-y border-rose-100 dark:border-slate-800" aria-labelledby="timeline-preview-heading">
         <Container>
           <Reveal>
-            <div className="mx-auto max-w-2xl text-center">
-              <p className={eyebrow + " text-teal-700 dark:text-teal-300"}>Timeline</p>
-              <h2 id="timeline-preview-heading" className="mt-4 font-heading text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-                Your medical history preview
+            <div className="mx-auto max-w-4xl text-center mb-16">
+              <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-black uppercase tracking-widest text-teal-700 bg-teal-50 border border-teal-200/80 dark:bg-teal-950/80 dark:text-teal-300 dark:border-teal-800 mb-4 shadow-sm">
+                <Heart className="h-3.5 w-3.5 text-rose-500 animate-pulse" />
+                <span>Your Longitudinal History</span>
+              </div>
+              <h2 id="timeline-preview-heading" className="font-heading text-4xl font-black tracking-tight text-slate-900 sm:text-5xl dark:text-white">
+                Your Medical Story At A Glance
               </h2>
-              <p className="mt-4 text-pretty text-lg text-slate-600 dark:text-slate-400">
-                A single scrollable story: visits, labs, and prescriptions grouped so the past makes sense—not buried in PDFs.
+              <p className="mt-4 text-pretty text-lg font-medium leading-relaxed text-slate-600 dark:text-slate-300 sm:text-xl">
+                A single scrollable chronological story: doctor visits, lab reports, and medication schedules grouped so your health journey makes absolute sense—not buried in paper folders.
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.06}>
-            <div className="mx-auto mt-12 max-w-5xl">
+            <div className="mx-auto mt-14 max-w-6xl">
               <div
                 className={
-                  "overflow-hidden rounded-[1.5rem] border border-teal-100/90 bg-gradient-to-b from-white via-rose-50/30 to-teal-50/40 p-2 shadow-sm dark:border-teal-900/30 dark:from-slate-950 dark:via-slate-900/80 dark:to-teal-950/20 sm:p-3 " +
+                  "overflow-hidden rounded-[2.5rem] border border-teal-200/90 bg-gradient-to-b from-white via-rose-50/40 to-teal-50/50 p-3 sm:p-4 shadow-2xl shadow-teal-500/20 dark:border-teal-500/40 dark:from-slate-900 dark:via-rose-950/30 dark:to-teal-950/30 dark:shadow-black/80 " +
                   transitionBase +
-                  " hover:shadow-md"
+                  " hover:shadow-[0_45px_100px_-15px_rgba(20,184,166,0.35)] hover:-translate-y-1"
                 }
               >
-                <div className="relative aspect-16/10 w-full min-h-0 overflow-hidden rounded-[1.2rem] bg-slate-100 ring-1 ring-rose-100/60 dark:bg-slate-900 dark:ring-rose-500/15">
+                <div className="relative aspect-[16/10] w-full min-h-0 overflow-hidden rounded-[2rem] bg-slate-100 ring-2 ring-teal-200/80 dark:bg-slate-900 dark:ring-teal-500/40">
                   <Image
                     src={MARKETING_PHOTOS.patientTimeline}
                     alt="Warm clinical moment focused on the patient experience and continuity of care"
                     fill
                     priority
                     placeholder="empty"
-                    className="object-cover object-center"
+                    className="object-cover object-center transform transition-transform duration-700 hover:scale-105"
                     sizes="(min-width: 1024px) min(80rem, 92vw), 100vw"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-50" />
                 </div>
               </div>
             </div>
@@ -189,29 +208,32 @@ export function ForPatientsPageContent() {
         </Container>
       </section>
 
-      <section className="relative pb-20 sm:pb-24" aria-labelledby="patient-features-heading">
+      <section className="relative py-24 sm:py-32" aria-labelledby="patient-features-heading">
         <Container>
           <Reveal>
-            <div className="mx-auto max-w-2xl text-center">
-              <p className={eyebrow + " text-teal-700 dark:text-teal-300"}>Inside the portal</p>
-              <h2 id="patient-features-heading" className="mt-4 font-heading text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-                Thoughtful tools for busy lives
+            <div className="mx-auto max-w-4xl text-center mb-16">
+              <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-black uppercase tracking-widest text-teal-700 bg-teal-50 border border-teal-200/80 dark:bg-teal-950/80 dark:text-teal-300 dark:border-teal-800 mb-4 shadow-sm">
+                <Sparkles className="h-3.5 w-3.5 text-teal-600 animate-spin" style={{ animationDuration: "6s" }} />
+                <span>Inside The Portal</span>
+              </div>
+              <h2 id="patient-features-heading" className="font-heading text-4xl font-black tracking-tight text-slate-900 sm:text-5xl dark:text-white">
+                Thoughtful Tooling For Busy Lives
               </h2>
-              <p className="mx-auto mt-4 max-w-3xl text-pretty text-lg text-slate-600 dark:text-slate-400">
-                Every module below maps to live APIs—nothing here is vaporware. Browse doctors, leave structured reviews after visits, and keep caregivers in the loop without surrendering your privacy.
+              <p className="mx-auto mt-4 max-w-3xl text-pretty text-lg font-medium leading-relaxed text-slate-600 dark:text-slate-300 sm:text-xl">
+                Every module below maps directly to active, secure APIs—nothing here is vaporware. Browse verified doctors, leave structured ratings, and keep caregivers in the loop with absolute privacy control.
               </p>
             </div>
           </Reveal>
 
-          <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-            {productFeatures.map(({ title, description, Icon }, i) => (
+          <div className="mx-auto mt-14 grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            {productFeatures.map(({ title, description, Icon, color }, i) => (
               <Reveal key={title} delay={0.05 * i}>
-                <article className={cardInteractive + " flex h-full flex-col rounded-[1.4rem] border-rose-100/50 p-8 dark:border-rose-500/10"}>
-                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/15 text-teal-800 dark:bg-teal-400/15 dark:text-teal-200">
-                    <Icon className="h-5 w-5" strokeWidth={1.65} aria-hidden />
+                <article className={"group flex h-full flex-col rounded-[2rem] border border-slate-200/90 bg-white/95 p-8 shadow-xl shadow-slate-200/50 backdrop-blur-2xl dark:border-slate-800/90 dark:bg-slate-900/90 dark:shadow-black/50 " + transitionBase + " hover:-translate-y-2 hover:border-teal-300 hover:shadow-2xl"}>
+                  <div className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${color} text-white shadow-xl shadow-teal-500/20 transform group-hover:scale-110 group-hover:rotate-6 transition`}>
+                    <Icon className="h-7 w-7" strokeWidth={2} aria-hidden />
                   </div>
-                  <h3 className="font-heading text-lg font-semibold text-slate-900 dark:text-white">{title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-400">{description}</p>
+                  <h3 className="font-heading text-xl font-black text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition">{title}</h3>
+                  <p className="mt-3 flex-1 text-sm font-medium leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
                 </article>
               </Reveal>
             ))}
@@ -219,28 +241,29 @@ export function ForPatientsPageContent() {
         </Container>
       </section>
 
-      <section className="relative pb-20 sm:pb-24" aria-labelledby="patient-security-heading">
+      <section className="relative py-24 sm:py-32 bg-gradient-to-b from-white via-teal-50/30 to-rose-50/20 dark:from-slate-950 dark:via-teal-950/10 dark:to-slate-950 border-t border-teal-100 dark:border-slate-800" aria-labelledby="patient-security-heading">
         <Container>
           <Reveal>
             <div
               className={
-                glassPanel +
-                " mx-auto max-w-3xl rounded-[1.5rem] border-teal-100/80 bg-gradient-to-br from-white/95 via-teal-50/40 to-rose-50/35 px-8 py-10 text-center dark:border-teal-900/25 dark:from-slate-950/90 dark:via-teal-950/20 dark:to-rose-950/15 sm:px-12 sm:py-12"
+                "mx-auto max-w-4xl rounded-[3rem] border border-teal-200/90 bg-gradient-to-br from-white/95 via-teal-50/50 to-rose-50/50 p-12 sm:p-16 shadow-2xl shadow-teal-500/15 backdrop-blur-3xl dark:border-teal-500/30 dark:from-slate-900/95 dark:via-teal-950/40 dark:to-rose-950/30 dark:shadow-black/60 relative overflow-hidden"
               }
             >
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-500/15 text-teal-700 dark:text-teal-200">
-                <ShieldCheck className="h-6 w-6" strokeWidth={1.65} aria-hidden />
+              <div className="absolute top-0 right-0 -mr-20 -mt-20 h-72 w-72 rounded-full bg-teal-500/10 blur-3xl" />
+              
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-rose-500 text-white shadow-xl shadow-teal-500/30 mb-6">
+                <ShieldCheck className="h-8 w-8" strokeWidth={2} aria-hidden />
               </div>
-              <h2 id="patient-security-heading" className="mt-5 font-heading text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
-                Security you can feel good about
+              <h2 id="patient-security-heading" className="font-heading text-3xl font-black tracking-tight text-slate-900 sm:text-4xl dark:text-white text-center">
+                Security You Can Feel Good About
               </h2>
-              <p className="mx-auto mt-3 max-w-xl text-pretty text-slate-600 dark:text-slate-400">
-                HealthBook treats your information with the same seriousness you do—without turning the experience into a maze of legal jargon.
+              <p className="mx-auto mt-4 max-w-2xl text-pretty text-lg font-medium leading-relaxed text-slate-600 dark:text-slate-300 text-center">
+                HealthBook treats your personal health information with the absolute highest standards of HIPAA-ready compliance—without turning your portal into a maze of legal jargon.
               </p>
-              <ul className="mx-auto mt-8 max-w-lg space-y-3 text-left text-sm text-slate-700 dark:text-slate-300 sm:text-base">
+              <ul className="mx-auto mt-10 max-w-2xl space-y-4 text-left text-base font-semibold text-slate-700 dark:text-slate-300">
                 {securityPoints.map((line) => (
-                  <li key={line} className="flex gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-br from-rose-400 to-teal-500" aria-hidden />
+                  <li key={line} className="flex items-center gap-3.5 bg-white/80 dark:bg-slate-800/80 p-4 rounded-2xl border border-teal-100 dark:border-slate-700 shadow-sm">
+                    <CheckCircle2 className="h-5 w-5 text-teal-600 shrink-0" />
                     <span>{line}</span>
                   </li>
                 ))}
@@ -250,32 +273,33 @@ export function ForPatientsPageContent() {
         </Container>
       </section>
 
-      <section className="relative pb-24 sm:pb-32" aria-labelledby="patients-cta-heading">
+      <section className="relative py-24 sm:py-36 bg-gradient-to-br from-teal-900 via-slate-900 to-rose-950 border-t border-teal-100 dark:border-slate-800 text-white overflow-hidden" aria-labelledby="patients-cta-heading">
         <Container>
           <Reveal>
-            <div className={glassPanel + " relative mx-auto max-w-4xl overflow-hidden rounded-[1.5rem] px-8 py-12 text-center sm:px-12 sm:py-14"}>
+            <div className="relative mx-auto max-w-4xl text-center">
               <div
                 aria-hidden
-                className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-rose-200/40 blur-3xl dark:bg-rose-500/10"
+                className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-rose-500/25 blur-3xl"
               />
               <div
                 aria-hidden
-                className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-teal-200/50 blur-3xl dark:bg-teal-500/10"
+                className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-teal-500/25 blur-3xl"
               />
-              <span className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-400 to-teal-500 text-white shadow-lg shadow-rose-400/25">
-                <Heart className="h-7 w-7" aria-hidden />
+              <span className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-400 to-teal-500 text-white shadow-xl shadow-rose-500/40 mb-6">
+                <Heart className="h-8 w-8 animate-pulse" aria-hidden />
               </span>
-              <h2 id="patients-cta-heading" className="relative mt-6 font-heading text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
-                Start your calmer health story today
+              <h2 id="patients-cta-heading" className="relative font-heading text-3xl font-black tracking-tight sm:text-5xl drop-shadow-sm">
+                Start Your Calmer Health Story Today
               </h2>
-              <p className="relative mx-auto mt-4 max-w-2xl text-pretty text-slate-600 dark:text-slate-400">
-                Create a free account, connect your care team when you are ready, and keep your health records app and patient portal in one friendly place.
+              <p className="relative mx-auto mt-6 max-w-3xl text-lg font-medium leading-relaxed text-teal-100 sm:text-xl">
+                Create a free account, connect your verified care team when you are ready, and keep your health records app and patient portal in one secure, friendly place.
               </p>
-              <div className="relative mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-                <Link href="/register" className={btnGradient + " min-w-[11rem] justify-center gap-2"}>
-                  Create your account
+              <div className="relative mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+                <Link href="/register" className={btnGradient + " min-h-[3.75rem] min-w-[220px] justify-center gap-3 shadow-2xl shadow-rose-500/40 font-extrabold transform hover:scale-105"}>
+                  <Zap className="h-5 w-5 animate-bounce" style={{ animationDuration: "2s" }} />
+                  <span>Create Free Account</span>
                 </Link>
-                <Link href="/features" className={btnGhost + " min-w-[10rem] justify-center"}>
+                <Link href="/features" className={btnGhost + " min-h-[3.75rem] min-w-[180px] justify-center font-extrabold border border-white/30 hover:bg-white/10"}>
                   Browse features
                 </Link>
               </div>
