@@ -199,13 +199,13 @@ export function SiteHeader() {
         <>
           <button
             type="button"
-            className="fixed inset-0 z-40 bg-slate-900/40 min-[1180px]:hidden"
+            className="fixed inset-0 z-40 bg-slate-900/65 backdrop-blur-sm min-[1180px]:hidden transition-opacity duration-300"
             aria-label="Close menu"
             onClick={closeMenu}
           />
           <div
             id="site-mobile-menu"
-            className="absolute left-0 right-0 top-full z-50 max-h-[min(70vh,calc(100dvh-4rem))] overflow-y-auto border-b border-slate-200/80 bg-white/95 px-4 py-4 shadow-lg backdrop-blur-md min-[1180px]:hidden dark:border-slate-800 dark:bg-slate-950/95"
+            className="absolute left-0 right-0 top-full z-50 max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-slate-200 bg-white px-6 py-6 shadow-2xl shadow-slate-900/25 min-[1180px]:hidden dark:border-slate-800 dark:bg-slate-950"
           >
             <nav className="mx-auto flex max-w-5xl flex-col gap-1 text-sm font-medium">
               <NavLinks pathname={pathname} onNavigate={closeMenu} layout="stack" />
