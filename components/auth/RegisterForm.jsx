@@ -18,9 +18,9 @@ const GENDERS = [
 ];
 
 const roleBtnActive =
-  "border-indigo-500 bg-gradient-to-br from-indigo-50 to-violet-50 text-indigo-900 shadow-md shadow-indigo-500/15 ring-1 ring-indigo-500/20 dark:border-indigo-400 dark:from-indigo-950/70 dark:to-violet-950/50 dark:text-indigo-100";
+  "outline-none focus:outline-none border-indigo-500 bg-gradient-to-br from-indigo-50 to-violet-50 text-indigo-900 shadow-md shadow-indigo-500/15 ring-1 ring-indigo-500/20 dark:border-indigo-400 dark:from-indigo-950/70 dark:to-violet-950/50 dark:text-indigo-100";
 const roleBtnIdle =
-  "border-slate-200/90 bg-white text-slate-700 hover:border-indigo-200 hover:bg-slate-50/90 hover:shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-indigo-500/30";
+  "outline-none focus:outline-none border-slate-200/90 bg-white text-slate-700 hover:border-indigo-200 hover:bg-slate-50/90 hover:shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-indigo-500/30";
 
 function clampInt(raw, { min, max }) {
   const v = Math.floor(Number(raw));
@@ -54,19 +54,21 @@ function normalizeIndiaMobileForUi(raw) {
 
 function StepDots({ steps, current }) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-1 items-center gap-1.5 min-w-0">
       {steps.map((s, idx) => {
         const active = idx === current;
         const done = idx < current;
         return (
-          <div key={s.key} className="flex items-center gap-2">
+          <div key={s.key} className="flex flex-1 items-center gap-1.5 min-w-0 last:flex-initial">
             <div
               className={[
-                "h-2.5 w-2.5 rounded-full transition",
+                "h-2.5 w-2.5 shrink-0 rounded-full transition",
                 done ? "bg-indigo-600" : active ? "bg-indigo-500" : "bg-slate-200 dark:bg-slate-700",
               ].join(" ")}
             />
-            {idx < steps.length - 1 ? <div className="h-px w-8 bg-slate-200 dark:bg-slate-700" /> : null}
+            {idx < steps.length - 1 ? (
+              <div className="h-px flex-1 min-w-[8px] bg-slate-200 dark:bg-slate-700" />
+            ) : null}
           </div>
         );
       })}
@@ -316,9 +318,9 @@ export function RegisterForm() {
             </div>
           ) : null}
 
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center justify-between gap-4">
             <StepDots steps={steps} current={stepIdx} />
-            <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+            <div className="shrink-0 text-xs font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">
               Step {Math.min(stepIdx + 1, steps.length)} of {steps.length}
             </div>
           </div>
