@@ -95,9 +95,11 @@ export function SiteHeader() {
           ? `${getUserAppUrl()}/doctor/home`
           : `${getUserAppUrl()}/dashboard`;
 
-  const headerSurface = elevated
-    ? "border-slate-200/90 bg-white/92 shadow-[0_14px_44px_-14px_rgba(15,23,42,0.18)] dark:border-slate-800 dark:bg-slate-950/92 dark:shadow-black/45"
-    : "border-slate-200/60 bg-white/72 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)] dark:border-slate-800/70 dark:bg-slate-950/65 dark:shadow-black/35";
+  const headerSurface = menuOpen
+    ? "border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950"
+    : elevated
+      ? "border-slate-200/90 bg-white/92 shadow-[0_14px_44px_-14px_rgba(15,23,42,0.18)] dark:border-slate-800 dark:bg-slate-950/92 dark:shadow-black/45"
+      : "border-slate-200/60 bg-white/72 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)] dark:border-slate-800/70 dark:bg-slate-950/65 dark:shadow-black/35";
 
   return (
     <header
@@ -106,7 +108,7 @@ export function SiteHeader() {
         headerSurface
       }
     >
-      <Container className="flex h-14 items-center justify-between gap-3 sm:h-16 sm:gap-4">
+      <Container className="relative z-50 flex h-14 items-center justify-between gap-3 sm:h-16 sm:gap-4">
         <Link
           href="/"
           className={
